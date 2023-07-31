@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vhh2TPT35XbzqRJMQlxCJAQlS5WTlUlW9CD8SK/r2t6B8fjMj0g7Aaco58D/KeEgQwRj3odFjkGKpDBDKtyapA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Helper\\EM.Helper.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Leandro\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

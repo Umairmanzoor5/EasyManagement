@@ -1,0 +1,313 @@
+﻿@page "{handler?}/{id?}"
+@model ExitsModel
+@{
+    ViewData["Title"] = "Saídas";
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/selects/select2.min.css">
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Informação sobre a fatura de compra</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Data de registo</label>
+                                <input type="date" class="form-control" id="dateCreate" asp-for="Now" readonly />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Data de Venda</label>
+                                <input type="date" class="form-control" id="dateSell" asp-for="ExitProducts.Sell" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Referência</label>
+                                <input type="text" class="form-control" asp-for="ExitProducts.Reference" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label>Cliente</label>
+                                <select class="select2 form-control" asp-items="@Model.Clients" asp-for="ExitProducts.Client"></select>
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Armazém</label>
+                                <select class="select2 form-control" asp-items="@Model.Warehouses" asp-for="ExitProducts.Warehouse"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Artigos</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="email-addr">Referencia</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-4">
+                                <label for="pass">Descrição</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="bio" class="cursor-pointer">Qtd.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="tel-input">Unid.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="profession">Preço/Unid.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="profession">Desc %</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="profession">Total</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="profession">Comandos</label>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="repeater-default">
+                            <div data-repeater-list="ExitProducts.Products">
+                                <div data-repeater-item>
+                                    <div class="form row">
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <select class="select2 form-control" asp-items="@Model.IdsProducts" name="Reference" onchange="DescripChange(this)"></select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-4">
+                                            <br>
+                                            <select class="select2 form-control" asp-items="@Model.Products" name="TempDescription" onchange="RefChange(this)"></select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <input type="number" class="form-control calcPrice" placeholder="10" name="Quantity" oninput="CalcTotal(this)" />
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <select class="select2 form-control" name="Unit">
+                                                <option value="1" selected>Uni</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="10" name="Price" oninput="CalcTotal(this)"/>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="5" name="Discount" oninput="CalcTotal(this)" />
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <input type="text" readonly class="form-control" name="Total" value="0.00€" >
+                                        </div>
+                                        <div class="form-group col-sm-12 col-md-1 text-center mt-2">
+                                            <button type="button" class="btn btn-danger" data-repeater-delete>
+                                                <i class="ft-x"></i>
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="form-group overflow-hidden">
+                                <div class="col-12">
+                                    <button data-repeater-create class="btn btn-primary addProduct" type="button">
+                                        <i class="ft-plus"></i> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Totais</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Total Sem IVA</label>
+                                <input readonly type="datetime" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>IVA</label>
+                                <input readonly type="datetime" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Total</label>
+                                <input readonly type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                            <input type="submit" class="btn btn-primary btn-lg" value="Submeter">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="~/app-assets/vendors/js/forms/repeater/jquery.repeater.min.js"></script>
+    <script src="~/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+
+    <script>
+
+        function DescripChange(e) {
+            var id = document.getElementsByName(e.name)[0].value;
+            descName = e.name.replace("Reference", "TempDescription");
+            DescripChangeJQ(descName, id);
+        }
+
+        function RefChange(e) {
+            var id = document.getElementsByName(e.name)[0].value;
+            descName = e.name.replace("TempDescription", "Reference");
+            RefChangeJQ(descName, id);
+        }
+
+        function CalcTotal(e) {
+
+            var priceName = "";
+            var qtdName = "";
+            var descName = "";
+            var totalName = "";
+
+            if (e.name.includes("Price")) {
+                priceName = e.name;
+                qtdName = e.name.replace("Price", "Quantity");
+                descName = e.name.replace("Price", "Discount");
+                totalName = e.name.replace("Price", "Total");
+            } else if (e.name.includes("Quantity")) {
+                priceName = e.name.replace("Quantity", "Price");
+                qtdName = e.name;
+                descName = e.name.replace("Quantity", "Discount");
+                totalName = e.name.replace("Quantity", "Total");
+            } else if (e.name.includes("Discount")) {
+                e.value = e.value.replace(".", ",");
+                priceName = e.name.replace("Discount", "Price");
+                qtdName = e.name.replace("Discount", "Quantity");
+                descName = e.name;
+                totalName = e.name.replace("Discount", "Total");
+            }
+
+            var unitPrice = document.getElementsByName(priceName)[0].value;
+
+            var desc = document.getElementsByName(descName)[0].value.replace(",", ".");
+
+            var qtd = document.getElementsByName(qtdName)[0].value;
+
+            var totalSDesc = unitPrice * qtd;
+
+            var totalDesc = unitPrice * qtd * (desc / 100);
+
+            var total = totalSDesc - totalDesc;
+
+            var totalRound = Math.round(total * 100) / 100;
+            
+            document.getElementsByName(totalName)[0].value = totalRound + " €";
+        }
+
+
+        $(document).ready(function() {
+
+            DescripChangeJQ = function(nam, value) {
+                $('[name="' + nam + '"]').val(value).trigger('change');
+                $('[name="' + nam.replace("TempDescription", "Reference") + '"]').val(value).trigger('change');
+            }
+        
+            RefChangeJQ = function(nam, value) {
+                $('[name="' + nam + '"]').val(value).trigger('change');
+                $('[name="' + nam.replace("Reference", "TempDescription") + '"]').val(value).trigger('change');
+            }
+            
+
+
+            $('.app-content ').attr('style', 'max-width: 100%');
+
+            //$('input').on('click', function(e) {
+            //    alert(e.target.name);
+            //});
+
+            $('.repeater-default').repeater({
+                show: function() {
+                    $(this).slideDown();
+                    $('.select2-container').remove();
+                    $("input").removeClass("calcPrice");
+                    $("input").addClass("calcPrice");
+                    $(".select2").select2({
+                        width: '100%',
+                        placeholder: "Placeholder text",
+                        allowClear: true
+                    });
+                },
+                hide: function(remove) {
+                    if (confirm('Are you sure you want to remove this item?')) {
+                        $(this).slideUp(remove);
+                    }
+                }
+            });
+
+            // Basic Select2 select
+            $(".select2").select2({
+                // the following code is used to disable x-scrollbar when click in select input and
+                // take 100% width in responsive also
+                dropdownAutoWidth: true,
+                width: '100%'
+            });
+
+            $('#dateCreate').val(new Date().toDateInputValue());
+            $('#dateSell').val(new Date().toDateInputValue());
+        });
+    </script>
+}

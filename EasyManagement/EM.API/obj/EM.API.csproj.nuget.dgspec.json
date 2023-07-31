@@ -1,0 +1,371 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.API\\EM.API.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.API\\EM.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.API\\EM.API.csproj",
+        "projectName": "EM.API",
+        "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.API\\EM.API.csproj",
+        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\EM.Business.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\EM.Business.csproj"
+              },
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj"
+              },
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.0.0-alpha07, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\EM.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\EM.Business.csproj",
+        "projectName": "EM.Business",
+        "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\EM.Business.csproj",
+        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj"
+              },
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.25.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "SendGrid": {
+              "target": "Package",
+              "version": "[9.28.1, )"
+            },
+            "SendgridEmailHelper": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.25.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj",
+        "projectName": "EM.DatabaseSQL",
+        "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj",
+        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj",
+        "projectName": "EM.DataRepository",
+        "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj",
+        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DatabaseSQL\\EM.DatabaseSQL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj",
+        "projectName": "EM.Services",
+        "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\EM.Services.csproj",
+        "packagesPath": "C:\\Users\\Leandro\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Leandro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj": {
+                "projectPath": "C:\\Users\\Leandro\\Source\\Workspaces\\Easy Management\\Dev\\Leandro\\EM.DataRepository\\EM.DataRepository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

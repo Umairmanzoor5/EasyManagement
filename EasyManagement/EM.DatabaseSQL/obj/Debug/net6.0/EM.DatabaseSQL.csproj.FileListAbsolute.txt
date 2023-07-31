@@ -1,0 +1,12 @@
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\bin\Debug\net6.0\EM.DatabaseSQL.deps.json
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\bin\Debug\net6.0\EM.DatabaseSQL.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\bin\Debug\net6.0\EM.DatabaseSQL.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.csproj.AssemblyReference.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.AssemblyInfoInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.AssemblyInfo.cs
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\refint\EM.DatabaseSQL.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\EM.DatabaseSQL.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseSQL\obj\Debug\net6.0\ref\EM.DatabaseSQL.dll

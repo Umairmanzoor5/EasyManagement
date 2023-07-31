@@ -1,0 +1,281 @@
+﻿@page "{handler?}/{id?}"
+@model EM.Web.Areas.Unit.Pages.IndexModel
+@{
+    ViewData["Title"] = "Unidades";
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css">
+
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/icheck/icheck.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/icheck/custom.css">
+<link rel="stylesheet" type="text/css" href="~/app-assets/css/plugins/forms/checkboxes-radios.css">
+
+
+<style>
+    .dataTables_scrollBody {
+        overflow-x: hidden;
+    }
+</style>
+}
+
+<section id="stock">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Unidades</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body card-dashboard">
+                        <table id="tableFinish" class="table table-striped" style="width: 100%">
+	                        <thead>
+	                        <tr>
+		                        <th>Identificação</th>
+		                        <th>Tipo</th>
+								<th>Comandos</th>
+	                        </tr>
+	                        </thead>
+	                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade text-left" id="createUnitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4> Adicionar Unidade</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form" method="post">
+                <div class="modal-body">
+	                <div class="row">
+		                <div class="col-lg-6 col-md-12">
+			                <div class="form-group">
+				                <label for="nomeCampo">Tipo</label>
+				                <input asp-for="CreateUnit.Type" type="text" class="form-control input-lg" placeholder="Tipo" required />
+			                </div>
+		                </div>		               
+	                </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Fechar">
+                    <input type="submit" class="btn btn-outline-primary btn-lg" value="Guardar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="buy-now">
+	<a class="btn btn-info btn-glow round px-2" data-toggle="modal" data-target="#createUnitModal" style="color: white;">Adicionar Unidade</a>
+</div>
+
+
+<div class="modal fade text-left" id="editUnitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4> Editar Unidade</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form class="form" method="post" asp-page-handler="edit">
+					<input name="EditUnit.Id" id="editId" type="hidden" />
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-12 col-md-12">
+							<div class="form-group">
+								<label>Tipo</label>
+									<input name="EditUnit.Type" id="editType" type="text" class="form-control input-lg" placeholder="Tipo Unidade" required />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Fechar">
+					<input type="submit" class="btn btn-outline-primary btn-lg" value="Guardar">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade text-left" id="infoUnitModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4> Todos os produtos da unidade</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <table id="tableInfoUnit" class="table table-striped" style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Referência</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+<script src="~/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+<script src="~/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js"></script>
+<script src="~/assets/js/zebra.js"></script>
+<script src="~/app-assets/js/scripts/pages/material-app.js"></script>
+<script src="~/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        var data = [];
+
+		@foreach (var d in Model.Units)
+		{
+            @:data.push(["@d.Id", "@d.Type", "<a class=\"btn btn-icon btn-info mr-1 mb-1 waves-effect waves-light btnInfoUnit\" data-id=\"@d.Id\" data-toggle=\"modal\" data-target=\"#infoUnitModal\" data-placement=\"top\" title=\"Detalhes\"><i class=\"la la-info-circle\" style=\"color: white;\"></i></a>     <a class=\"btn btn-icon btn-warning mr-1 mb-1 waves-effect waves-light btnEditUnit\" data-id=\"@d.Id\" data-toggle=\"modal\" data-target=\"#editUnitModal\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\"><i class=\"la la-edit\" style=\"color: white;\"></i></a> <a class=\"btn btn-icon btn-danger mr-1 mb-1 waves-effect waves-light btnDeleteUnit\" data-id=\"@d.Id\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\"><i style=\"color: white;\" class=\"la la-close\"></i></a> "]);
+		}
+
+        $('#tableFinish').DataTable({
+            data:           data,
+            deferRender:    true,
+            scrollY:        550,
+            scrollCollapse: true,
+            scroller: true
+        });
+
+
+
+		$('.btnEditUnit').on('click',
+	            function (e) {
+	                var id = $(this).attr('data-id');
+	                e.preventDefault();
+				$.getJSON('Unit/UnitInfo?id=' + id,
+	                    function (data) {
+							$('#editId').val(data.data1);
+	                        $('#editType').val(data.data2);	                                                       
+	                    });
+	                e.preventDefault();
+	            });
+
+
+		$('.btnDeleteUnit').on('click',
+	    function (e) {
+	        var id = $(this).attr('data-id');
+	        Swal.fire({
+	            title: 'Tem a certeza?',
+	            text: "Não poderá voltar atrás!",
+	            type: 'warning',
+	            showCancelButton: true,
+	            confirmButtonColor: '#3085d6',
+	            cancelButtonColor: '#d33',
+	            confirmButtonText: 'Eliminar!',
+	            confirmButtonClass: 'btn btn-primary',
+	            cancelButtonClass: 'btn btn-danger ml-1',
+	            buttonsStyling: false,
+	        }).then(function (result) {
+	            if (result.value) {
+	                $.ajax({
+	                    type: "GET",
+							url: 'Unit/Delete?id=' + id,
+	                    dataType: "json",
+	                    contentType: "application/json; charset=utf-8"
+	                });
+	                Swal.fire({
+	                    type: "success",
+	                    title: 'Eliminado!',
+	                    text: 'Unidade eliminada com sucesso.',
+	                    confirmButtonClass: 'btn btn-success'
+	                }).then(function (result) {
+	                    if (result.value) {
+									location.href = 'Unit';
+	                    }
+	                });
+	            }
+	        });
+	    });
+
+        $('.btnInfoUnit').on('click',
+            function (e) {
+                var id = $(this).attr('data-id');
+                e.preventDefault();
+                $.getJSON('Unit/ProductsByUnit?id=' + id,  // get all products with unit with respective id
+                    function (data) {
+                        if (data.data != []) {
+                            var products = data.data;
+                            $('#tableInfoUnit').DataTable({
+                                data: products,
+                                deferRender: true,
+                                scrollY: 550,
+                                scrollCollapse: true,
+                                scroller: true,
+                                destroy: true,
+                            })
+                        }
+                        else {
+                            $('#products').val("Não existem produtos desta unidade.");
+                        }
+                    });
+                e.preventDefault();
+            });
+
+    });
+
+    // conflict
+   /* 
+   $(document).on('click',
+        '.btnDeleteAsset',
+        function (e) {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: "Não poderá reverter isso!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, eliminar!',
+                cancelButtonText: 'Não'
+            }).then((result) => {
+                if (result.value) {
+                    const id = $(this).attr('data-id');
+                    window.location.href = '/AssetFinished?id=' + id + '&handler=Delete';
+                }
+            });
+        });
+    */
+
+
+    //var element = document.getElementById("finalizados");
+    //element.classList.add("active");
+</script>
+}

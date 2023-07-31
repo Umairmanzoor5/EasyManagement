@@ -1,0 +1,137 @@
+﻿@page "{handler?}/{id?}"
+@model IndexModel
+@{
+    ViewData["Title"] = "List Manufactoring";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css">
+
+    <style>
+        .dataTables_scrollBody {
+            overflow-x: hidden;
+        }
+    </style>
+}
+
+<section id="stock">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Artigos</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body card-dashboard">
+                        <table id="tableFinish" class="table table-striped" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>Referencia</th>
+                                    <th>Descrição</th>
+                                    <th>Familia</th>
+                                    <th>Quantidade</th>
+                                    <th>Unidade</th>
+                                    <th>PL</th>
+                                    <th>PVP</th>
+                                    <th>Comandos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>TM172PDG42R</td>
+                                    <td>Autómato Ethernet 42P</td>
+                                    <td>Autómatos</td>
+                                    <td style="text-align: center;">5</td>
+                                    <td style="text-align: center;">Uni</td>
+                                    <td style="text-align: center;">222.61€</td>
+                                    <td style="text-align: center;">349.90€</td>
+                                    <td>
+                                        <a class="btn btn-icon btn-info mr-1 mb-1 waves-effect waves-light" href="/Asset/Detail?id=" data-toggle="tooltip" data-placement="top" title="Detalhes"><i class="la la-info-circle" style="color: white;"></i></a>
+
+                                        <a class="btn btn-icon btn-warning mr-1 mb-1 waves-effect waves-light" href="/Asset/Edit?id=" data-toggle="tooltip" data-placement="top" title="Editar"><i class="la la-edit" style="color: white;"></i></a>
+
+                                        <a class="btn btn-icon btn-danger mr-1 mb-1 waves-effect waves-light btnDeleteAsset" data-id="" data-toggle="tooltip" data-placement="top" title="Eliminar"><i style="color: white;" class="la la-close"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="buy-now">
+    <a class="btn btn-info btn-glow round px-2" data-toggle="modal" data-target="#createProductModal" style="color: white;">Adicionar Artigo</a>
+</div>
+
+@section Scripts {
+
+    <script src="~/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js"></script>
+    <script src="~/app-assets/js/scripts/pages/material-app.js"></script>
+    <script src="~/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            var data = [];
+
+        @foreach (var d in Model.Products)
+        {
+            @:data.push(["@d.Reference", "@d.Description", "@d.NameFamily", "@d.Quantity", "@d.Unit", "@d.Pl", "@d.Pvp", "<a class=\"btn btn-icon btn-info mr-1 mb-1 waves-effect waves-light\" href=\"/Asset/Detail?id=@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Detalhes\"><i class=\"la la-info-circle\" style=\"color: white;\"></i></a>     <a class=\"btn btn-icon btn-warning mr-1 mb-1 waves-effect waves-light btnEditSupplier\" data-nif=\"@d.Reference\" data-toggle=\"modal\" data-target=\"#editSupplierModal\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\"><i class=\"la la-edit\" style=\"color: white;\"></i></a> <a class=\"btn btn-icon btn-danger mr-1 mb-1 waves-effect waves-light btnDeleteSupplier\" data-nif=\"@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\"><i style=\"color: white;\" class=\"la la-close\"></i></a> "]);
+        }
+
+                $('#tableFinish').DataTable({
+                    data: data,
+                    deferRender: true,
+                    scrollY: 550,
+                    scrollCollapse: true,
+                    scroller: true
+                });
+        });
+        // conflict
+        $(document).on('click',
+            '.btnDeleteAsset',
+            function (e) {
+                Swal.fire({
+                    title: 'Tem certeza?',
+                    text: "Não poderá reverter isso!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, eliminar!',
+                    cancelButtonText: 'Não'
+                }).then((result) => {
+                    if (result.value) {
+                        const id = $(this).attr('data-id');
+                        window.location.href = '/AssetFinished?id=' + id + '&handler=Delete';
+                    }
+                });
+            });
+
+        var element = document.getElementById("finalizados");
+        element.classList.add("active");
+    </script>
+}

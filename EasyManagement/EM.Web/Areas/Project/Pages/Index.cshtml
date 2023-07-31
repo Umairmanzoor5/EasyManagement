@@ -1,0 +1,220 @@
+﻿@page "{handler?}/{id?}"
+@model IndexModel
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/extensions/sweetalert2.min.css">
+
+
+    <style>
+        .dataTables_scrollBody {
+            overflow-x: hidden;
+        }
+    </style>
+}
+
+<section id="Projects">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Projects</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body card-dashboard">
+                        <table id="tableFinish" class="table table-striped" style="width: 100%">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Client</th>
+                                    <th>Status</th>
+                                    <th>Created On</th>
+                                    <th>Revision Date</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="buy-now">
+    <a class="btn btn-info btn-glow round px-2" data-toggle="modal" data-target="#createProjectModal" style="color: white;">Add Project</a>
+</div>
+
+<div class="modal fade text-left" id="createProjectModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel34" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4> Create Project </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: black;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class="form" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="form-group">
+                                <label>Reference</label>
+                                <input name="CreateProject.Reference" type="text" class="form-control input-lg" placeholder="Reference" />
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-12">
+                            <div class="form-group">
+                                <label for="nomeCampo">Cliente</label>
+                                <select class="seclect2 form-control" asp-items="@Model.IdClients" asp-for="CreateProject.IdClient"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea name="CreateProject.Description" class="form-control input-lg" placeholder="Description" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label>Attachments</label>
+                                <input name="CreateProject.Attachments" type="file" multiple class="form-control input-lg" placeholder="Attachments" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="reset" class="btn btn-outline-secondary btn-lg" data-dismiss="modal" value="Close">
+                    <input type="submit" class="btn btn-outline-primary btn-lg" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js"></script>
+    <script src="~/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            var data = [];
+
+        @foreach (var d in Model.Projects)
+        {
+            @:data.push(["@d.Reference", "@d.Client", "@d.State", "@d.CreateDate", "@d.UpdateDate", "<a class=\"btn btn-icon btn-info mr-1 mb-1 waves-effect waves-light\" href=\"/Budget?id=@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Orçamento\"><i class=\"la la-paper-plane\" style=\"color: white;\"></i></a>      <a class=\"btn btn-icon btn-success mr-1 mb-1 waves-effect waves-light btnApproveProject\" data-id=\"@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Aprovar\"><i class=\"la la-thumbs-up\" style=\"color: white;\"></i></a>      <a class=\"btn btn-icon btn-danger mr-1 mb-1 waves-effect waves-light btnRecuseProject\" data-id=\"@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Recusado\"><i class=\"la la-thumbs-down\" style=\"color: white;\"></i></a>     <a class=\"btn btn-icon btn-warning mr-1 mb-1 waves-effect waves-light btnEditClient\" data-nif=\"@d.Reference\" data-toggle=\"modal\" data-target=\"#editClientModal\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Editar\"><i class=\"la la-edit\" style=\"color: white;\"></i></a>        <a class=\"btn btn-icon btn-danger mr-1 mb-1 waves-effect waves-light btnDeleteClient\" data-nif=\"@d.Reference\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Eliminar\"><i style=\"color: white;\" class=\"la la-close\"></i></a> "]);
+        }
+                console.log(data);
+
+            $('#tableFinish').DataTable({
+                data: data,
+                deferRender: true,
+                scrollY: 550,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+
+            // Process Information
+            $('.btnApproveProject').on('click',
+                function (e) {
+                    var id = $(this).attr('data-id'); // <-----
+                    Swal.fire({
+                        title: 'Tem a certeza?',
+                        text: "There is no turning back!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Approved Project!',
+                        confirmButtonClass: 'btn btn-primary',
+                        cancelButtonClass: 'btn btn-danger ml-1',
+                        buttonsStyling: false,
+                    }).then(function (result) {
+                        if (result.value) {
+                            $.ajax({
+                                type: "GET",
+                                url: 'Project/Approve?id=' + id,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8"
+                            });
+                            Swal.fire({
+                                type: "success",
+                                title: 'Approved Successfully!',
+                                text: 'Project approved successfully.',
+                                confirmButtonClass: 'btn btn-success'
+                            }).then(function (result) {
+                                if (result.value) {
+                                    location.href = 'Project';
+                                }
+                            });
+                        }
+                    });
+                });
+
+            $('.btnRecuseProject').on('click',
+                function (e) {
+                    var id = $(this).attr('data-id'); // <-----
+                    Swal.fire({
+                        title: 'Tem a certeza?',
+                        text: "There is no turning back!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Rejected Project!',
+                        confirmButtonClass: 'btn btn-primary',
+                        cancelButtonClass: 'btn btn-danger ml-1',
+                        buttonsStyling: false,
+                    }).then(function (result) {
+                        if (result.value) {
+                            $.ajax({
+                                type: "GET",
+                                url: 'Project/Recuse?id=' + id,
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8"
+                            });
+                            Swal.fire({
+                                type: "success",
+                                title: 'Successfully Rejected!',
+                                text: 'Project rejected successfully.',
+                                confirmButtonClass: 'btn btn-success'
+                            }).then(function (result) {
+                                if (result.value) {
+                                    location.href = 'Project';
+                                }
+                            });
+                        }
+                    });
+                });
+        });
+
+                        //var element = document.getElementById("finalizados");
+                        //element.classList.add("active");
+    </script>
+}

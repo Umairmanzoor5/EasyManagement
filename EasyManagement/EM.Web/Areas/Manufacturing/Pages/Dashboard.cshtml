@@ -1,0 +1,248 @@
+﻿@page "{handler?}/{id?}"
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Custo do Projeto</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <canvas id="simple-doughnut-chart" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Progresso do Projeto</h4>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                <li><a data-action="close"><i class="ft-x"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-content collapse show">
+                        <div class="card-body">
+                            <canvas id="simple-doughnut-chart2" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Produtos</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                    <table id="tableProducts" class="table table-striped" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Referencia</th>
+                                <th>Descrição</th>
+                                <th>Familia</th>
+                                <th>Qtd. a Usar</th>
+                                <th>Qtd. Usada</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TM172PDG42R</td>
+                                <td>Autómato Ethernet 42P</td>
+                                <td>Autómatos</td>
+                                <td style="text-align: center;">5</td>
+                                <td style="text-align: center;">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Histórico de Operações</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0">
+                        <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                        <li><a data-action="close"><i class="ft-x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-content collapse show">
+                <div class="card-body card-dashboard">
+                    <table id="tableProcess" class="table table-striped" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>Operador</th>
+                                <th>Tarefa</th>
+                                <th>Tempo (h)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Luis</td>
+                                <td>Orçamentação</td>
+                                <td>5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/app-assets/vendors/js/ui/jquery.sticky.js"></script>
+    <script src="~/app-assets/vendors/js/charts/chart.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+    <script src="~/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var data = [];
+            var data2 = [];
+
+            $('#tableProducts').DataTable({
+                data: data,
+                deferRender: true,
+                scrollY: 550,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+            $('#tableProcess').DataTable({
+                data: data2,
+                deferRender: true,
+                scrollY: 550,
+                scrollCollapse: true,
+                scroller: true
+            });
+
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#simple-doughnut-chart");
+
+            // Chart Options
+            var chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 500,
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: ["Por Liquidar", "Liquidado"],
+                datasets: [{
+                    label: "Valor do Projeto",
+                    data: [2000, 1000],
+                    backgroundColor: ['#FF4558', '#28D094'],
+                }]
+            };
+
+            var config = {
+                type: 'doughnut',
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var doughnutSimpleChart = new Chart(ctx, config);
+
+            //Get the context of the Chart canvas element we want to select
+            var ctx = $("#simple-doughnut-chart2");
+
+            // Chart Options
+            var chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                responsiveAnimationDuration: 500,
+            };
+
+            // Chart Data
+            var chartData = {
+                labels: ["Em Progresso", "Finalizado"],
+                datasets: [{
+                    label: "Valor do Projeto",
+                    data: [55, 45],
+                    backgroundColor: ['#FF4558', '#28D094'],
+                }]
+            };
+
+            var config = {
+                type: 'doughnut',
+                // Chart Options
+                options: chartOptions,
+
+                data: chartData
+            };
+
+            // Create the chart
+            var doughnutSimpleChart = new Chart(ctx, config);
+
+        });
+    </script>
+}

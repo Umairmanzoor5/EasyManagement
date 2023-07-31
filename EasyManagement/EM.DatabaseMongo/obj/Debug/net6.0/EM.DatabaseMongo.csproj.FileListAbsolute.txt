@@ -1,0 +1,12 @@
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\bin\Debug\net6.0\EM.DatabaseMongo.deps.json
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\bin\Debug\net6.0\EM.DatabaseMongo.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\bin\Debug\net6.0\EM.DatabaseMongo.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.csproj.AssemblyReference.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.AssemblyInfoInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.AssemblyInfo.cs
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\refint\EM.DatabaseMongo.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\EM.DatabaseMongo.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DatabaseMongo\obj\Debug\net6.0\ref\EM.DatabaseMongo.dll

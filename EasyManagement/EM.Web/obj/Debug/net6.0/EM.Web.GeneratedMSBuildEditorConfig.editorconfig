@@ -1,0 +1,221 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EM.Web
+build_property.RootNamespace = EM.Web
+build_property.ProjectDir = C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Web\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Budget/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVkZ2V0XFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Budget/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVkZ2V0XFBhZ2VzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Budget/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQnVkZ2V0XFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Client/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Client/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFBhZ2VzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Client/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ2xpZW50XFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Family/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFtaWx5XFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Family/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFtaWx5XFBhZ2VzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Family/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFtaWx5XFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Manufacturing/Pages/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFudWZhY3R1cmluZ1xQYWdlc1xEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Manufacturing/Pages/EditManufacturing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFudWZhY3R1cmluZ1xQYWdlc1xFZGl0TWFudWZhY3R1cmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Manufacturing/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFudWZhY3R1cmluZ1xQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Manufacturing/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFudWZhY3R1cmluZ1xQYWdlc1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Manufacturing/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWFudWZhY3R1cmluZ1xQYWdlc1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Project/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Project/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxQYWdlc1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Project/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUHJvamVjdFxQYWdlc1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Adjustment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcQWRqdXN0bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Budget.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcQnVkZ2V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Entries.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcRW50cmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Exits.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcRXhpdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Transfers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcVHJhbnNmZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/Verification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcVmVyaWZpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Stock/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3RvY2tcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Supplier/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcGxpZXJcUGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Supplier/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcGxpZXJcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Supplier/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3VwcGxpZXJcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Tax/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGF4XFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Tax/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGF4XFBhZ2VzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Tax/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGF4XFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/TypesProduct/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHlwZXNQcm9kdWN0XFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/TypesProduct/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHlwZXNQcm9kdWN0XFBhZ2VzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/TypesProduct/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVHlwZXNQcm9kdWN0XFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Unit/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5pdFxQYWdlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Unit/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5pdFxQYWdlc1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Unit/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVW5pdFxQYWdlc1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Warehouse/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcV2FyZWhvdXNlXFBhZ2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Areas/Warehouse/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcV2FyZWhvdXNlXFBhZ2VzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Index1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leandro/Source/Workspaces/Easy Management/Dev/Leandro/EM.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-5qckhblvo5

@@ -1,0 +1,12 @@
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\bin\Debug\net6.0\EM.Helper.deps.json
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\bin\Debug\net6.0\EM.Helper.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\bin\Debug\net6.0\EM.Helper.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.csproj.AssemblyReference.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.AssemblyInfoInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.AssemblyInfo.cs
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\refint\EM.Helper.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\EM.Helper.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Helper\obj\Debug\net6.0\ref\EM.Helper.dll

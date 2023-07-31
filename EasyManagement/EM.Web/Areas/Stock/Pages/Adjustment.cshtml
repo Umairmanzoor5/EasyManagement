@@ -1,0 +1,284 @@
+﻿@page "{handler?}/{id?}"
+@model AdjustmentModel
+@{
+    ViewData["Title"] = "Acerto de Stock";
+}
+
+@section Styles {
+<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/selects/select2.min.css">
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Acerto de Stock em Armazem</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Data de registo</label>
+                                <input type="date" class="form-control" id="dateCreate" asp-for="Now" readonly />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Referencia Interna</label>
+                                <input type="text" class="form-control" asp-for="AdjustStock.Reference" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Armazem</label>
+                                <select class="select2 form-control" asp-items="@Model.Warehouses" asp-for="AdjustStock.Warehouse" onchange="if (this.selectedIndex) choiceWarehouse(this);" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Artigos</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="email-addr">Referencia</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-4">
+                                <label for="pass">Descrição</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-3">
+                                <label for="ex">Stock Existente</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="tel-input">Stock Atual</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-1">
+                                <label for="profession">Comandos</label>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="repeater-default">
+                            <div data-repeater-list="AdjustStock.Products">
+                                <div data-repeater-item>
+                                    <div class="form row">
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <select class="select2 selectRef form-control" name="Reference" onchange="if (this.selectedIndex) DescripChange(this);" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-4">
+                                            <br>
+                                            <select class="select2 selectDecr form-control" name="TempDescription" onchange="if (this.selectedIndex) RefChange(this);">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-3">
+                                            <br>
+                                            <input type="text" readonly class="form-control" name="OldQuantity" value="0">
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <input type="number" class="form-control" placeholder="10" name="NewQuantity" />
+                                        </div>
+                                        <div class="form-group col-sm-12 col-md-1 text-center mt-2">
+                                            <button type="button" class="btn btn-danger" data-repeater-delete>
+                                                <i class="ft-x"></i>
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="form-group overflow-hidden">
+                                <div class="col-12">
+                                    <button data-repeater-create class="btn btn-primary addProduct" type="button">
+                                        <i class="ft-plus"></i> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-11">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Submeter">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="~/app-assets/vendors/js/forms/repeater/jquery.repeater.min.js"></script>
+    <script src="~/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+
+    <script>
+
+        var tempId;
+
+        var DescripChangeFunc = false;
+        var RefChangeFunc = false;
+
+        function DescripChange(e) {
+            DescripChangeFunc = true;
+            if (RefChangeFunc === false){
+                const id = document.getElementsByName(e.name)[0].value;
+                DescripChangeJQ(e.name, id);
+            }
+            DescripChangeFunc = false;
+        }
+
+        function RefChange(e) {
+            RefChangeFunc = true;
+            if (DescripChangeFunc === false){
+                const id = document.getElementsByName(e.name)[0].value;
+                RefChangeJQ(e.name, id);
+            }
+            RefChangeFunc = false;
+        }
+
+        function choiceWarehouse(e) {
+            choiceWarehouseJQ(e.name);
+        }
+        
+        $(document).ready(function() {
+
+            DescripChangeJQ = function(name, id) {
+                if (id !== "") {
+                    var stock = products.find(x => x.reference === id).stockNow;
+                    $('[name="' + name.replace("Reference", "OldQuantity") + '"]').val(stock.toString().replace('.', ','));
+                    $('[name="' + name.replace("Reference", "TempDescription") + '"]').val(id).trigger('change');
+                }
+            }
+
+            RefChangeJQ = function(name, id) {
+                if (id !== "") {
+                    const stock = products.find(x => x.reference === id).stockNow;
+                    $('[name="' + name.replace("TempDescription", "OldQuantity") + '"]').val(stock.toString().replace('.', ','));
+                    $('[name="' + name.replace("TempDescription", "Reference") + '"]').val(id).trigger('change');
+                }
+            }
+
+            var products;
+
+            var productsSelectRef = [];
+            var productsSelectDecrip = [];
+
+            choiceWarehouseJQ = function(name) {
+
+                const idWarehouse = $('[name="' + name + '"]').val();
+
+                $.ajax({
+                    type: "GET",
+                    url: 'Adjustment/ProductsWarehouse?id=' + idWarehouse,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function(data) {
+                        products = data;
+                        productsSelectRef = [];
+                        productsSelectDecrip = [];
+
+                        for (let i = 0; i < data.length; i++) {
+
+                            let opt = {
+                                id: data[i].reference,
+                                text: data[i].reference
+                            };
+
+                            productsSelectRef.push(opt);
+
+                            opt = {
+                                id: data[i].reference,
+                                text: data[i].description
+                            };
+
+                            productsSelectDecrip.push(opt);
+
+                        }
+
+                        $('.selectRef').empty().trigger("change");
+                        $('.selectRef').prepend('<option selected=""></option>').select2({
+                            width: '100%',
+                            placeholder: "Placeholder text",
+                            data: productsSelectRef
+                        });
+
+                        $('.selectDecr').empty().trigger("change");
+                        $('.selectDecr').prepend('<option selected=""></option>').select2({
+                            width: '100%',
+                            placeholder: "Placeholder text",
+                            data: productsSelectDecrip
+                        });
+                    }
+                });
+            }
+
+
+            $('.app-content ').attr('style', 'max-width: 100%; margin-bottom: 30px;');
+
+            $('.repeater-default').repeater({
+                show: function() {
+                    $(this).slideDown();
+                    $('.select2-container').remove();
+                    $(".select2").select2();
+                    $("input").removeClass("calcPrice");
+                    $("input").addClass("calcPrice");
+                    $(".selectRef").select2({
+                        width: '100%',
+                        placeholder: "Placeholder text",
+                        data: productsSelectRef
+                    });
+                    $('.selectDecr').select2({
+                        width: '100%',
+                        placeholder: "Placeholder text",
+                        data: productsSelectDecrip
+                    });
+                },
+                hide: function(remove) {
+                    if (confirm('Are you sure you want to remove this item?')) {
+                        $(this).slideUp(remove);
+                    }
+                }
+            });
+
+            // Basic Select2 select
+            $(".select2").select2({
+                // the following code is used to disable x-scrollbar when click in select input and
+                // take 100% width in responsive also
+                dropdownAutoWidth: true,
+                width: '100%',
+                placeholder: "Placeholder text"
+            });
+
+            $('#dateCreate').val(new Date().toDateInputValue());
+            $('#dateBuy').val(new Date().toDateInputValue());
+        });
+    </script>
+}

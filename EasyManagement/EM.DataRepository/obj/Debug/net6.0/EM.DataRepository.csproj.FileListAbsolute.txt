@@ -1,0 +1,15 @@
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\bin\Debug\net6.0\EM.DataRepository.deps.json
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\bin\Debug\net6.0\EM.DataRepository.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\bin\Debug\net6.0\EM.DataRepository.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\bin\Debug\net6.0\EM.DatabaseSQL.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\bin\Debug\net6.0\EM.DatabaseSQL.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.csproj.AssemblyReference.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.AssemblyInfoInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.AssemblyInfo.cs
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.csproj.CopyComplete
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\refint\EM.DataRepository.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\EM.DataRepository.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.DataRepository\obj\Debug\net6.0\ref\EM.DataRepository.dll

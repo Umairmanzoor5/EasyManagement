@@ -1,0 +1,17 @@
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.Services.deps.json
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.Services.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.Services.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.DatabaseSQL.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.DataRepository.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.DataRepository.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\bin\Debug\net6.0\EM.DatabaseSQL.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.csproj.AssemblyReference.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.AssemblyInfoInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.AssemblyInfo.cs
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.csproj.CoreCompileInputs.cache
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.csproj.CopyComplete
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\refint\EM.Services.dll
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\EM.Services.pdb
+C:\Users\Leandro\Source\Workspaces\Easy Management\Dev\Leandro\EM.Services\obj\Debug\net6.0\ref\EM.Services.dll

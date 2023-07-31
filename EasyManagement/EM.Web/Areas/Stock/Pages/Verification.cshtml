@@ -1,0 +1,198 @@
+﻿@page "{handler?}/{id?}"
+@model EM.Web.Areas.Stock.Pages.VerificationModel
+@{
+	ViewData["Title"] = "Verificação";
+}
+
+@section Styles {
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/datatables.min.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/responsive.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/colReorder.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/tables/extensions/fixedHeader.dataTables.min.css">
+
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/icheck/icheck.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/icheck/custom.css">
+	<link rel="stylesheet" type="text/css" href="~/app-assets/css/plugins/forms/checkboxes-radios.css">
+
+
+	<style>
+		.dataTables_scrollBody {
+			overflow-x: hidden;
+		}
+	</style>
+}
+
+<div class="row">
+	<div class="col-12">
+		<div class="card">
+			<div class="card-header">
+				<h4 class="card-title">Selecionar Artigos</h4>
+				<a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+				<div class="heading-elements">
+					<ul class="list-inline mb-0">
+						<li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+						<li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+						<li><a data-action="close"><i class="ft-x"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="card-content collapse show">
+				<div class="card-body card-dashboard">
+					<div class="row">
+						<div class="form-group mb-1 col-sm-12 col-md-2">
+							<label for="family">Família</label>
+						</div>
+					</div>
+					<div class="repeater-default">
+						<div data-repeater-list="Products">
+							<div data-repeater-item>
+								<div class="form">
+									<div class="form-group mb-1 col-sm-12 col-md-2">
+										<select class="select2 selectFamily form-control" name="Family" asp-items="@Model.Families">
+											<option>Selecione</option>
+										</select>
+									</div>
+
+									<table id="tableInfoFamily" class="table table-striped" style="width: 100%">
+										<thead>
+											<tr>
+												<th>Referência</th>
+												<th>Descrição</th>
+												<th>Checkbox</th>
+											</tr>
+										</thead>
+									</table>
+
+									<button class="btn btn-icon btn-info mr-1 mb-1 waves-effect waves-light" id="VerifyStock" title="Verificar" type="submit">
+										Verificar
+									</button>
+
+									<table id="tableProductsInStock" class="table table-striped" style="width: 100%">
+										<thead>
+											<tr>
+												<th>Referência</th>
+											</tr>
+										</thead>
+									</table>
+
+								</div>
+								<hr>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+
+	<script src="~/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/datatable/dataTables.colReorder.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+	<script src="~/app-assets/vendors/js/tables/datatable/dataTables.fixedHeader.min.js"></script>
+	<script src="~/assets/js/zebra.js"></script>
+	<script src="~/app-assets/js/scripts/pages/material-app.js"></script>
+	<script src="~/app-assets/js/scripts/forms/checkbox-radio.js"></script>
+
+	<script>
+		var products_to_verify = [];
+		function toggleProduct(checkbox) {
+			var product_reference = checkbox.name;
+			if (checkbox.checked) {
+				products_to_verify.push(product_reference);
+			}
+			else {
+				if (products_to_verify.length > 0) {
+					var index = products_to_verify.indexOf(product_reference);
+					products_to_verify.splice(index, 1);
+				}
+			}
+		}
+
+		$(document).ready(function () {
+			$('.selectFamily').on('change',
+				function (e) {								
+					products_to_verify = [];
+					var id = $(this).val();
+
+					e.preventDefault();
+					$.getJSON('Verification/ProductsByFamily?id=' + id,  // get all products with family with respective id
+						function (data) {
+							if (data.data != []) {
+								var products = data.data;
+								for (let i = 0; i < products.length; i++) {
+									products[i].push(`<input type=\"checkbox\" id=\"checkbox${i}\" name=\"${products[i][0]}\" onchange=\"toggleProduct(this)\">`);
+								}
+								$('#tableInfoFamily').DataTable({
+									data: products,
+									deferRender: true,
+									scrollY: 550,
+									scrollCollapse: true,
+									scroller: true,
+									destroy: true,
+								});
+							}
+							else {
+								$('#products').val("Não existem produtos desta família.");
+							}
+						});
+					e.preventDefault();
+				});
+
+			$("#VerifyStock").on('click',
+				function (e) {
+					e.preventDefault();
+					if (products_to_verify.length > 0) {
+						$.getJSON('Verification/VerifyStock?products=' + products_to_verify,  // returns list of products that are in stock
+							function (data) {
+								if (data.data != []) {
+									var products = data.data;
+									for (let i = 0; i < products.length; i++) {
+										products[i] = [products[i]];
+									}
+
+									$('#tableProductsInStock').DataTable({
+										data: products,
+										deferRender: true,
+										scrollY: 550,
+										scrollCollapse: true,
+										scroller: true,
+										destroy: true,
+									});
+								}
+								else {
+									$('#tableProductsInStock').DataTable({
+										data: [["Nenhum dos produtos selecionados está disponível em stock."]],
+										deferRender: true,
+										scrollY: 550,
+										scrollCollapse: true,
+										scroller: true,
+										destroy: true,
+									});
+								}
+							});
+					}
+					else {
+						$('#tableProductsInStock').DataTable({
+							data: [["Por favor selecione um ou mais produtos."]],
+							deferRender: true,
+							scrollY: 550,
+							scrollCollapse: true,
+							scroller: true,
+							destroy: true,
+						});
+					}
+					e.preventDefault();
+				});
+		});
+	</script>
+}

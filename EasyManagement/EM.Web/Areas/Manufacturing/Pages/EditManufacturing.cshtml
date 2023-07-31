@@ -1,0 +1,548 @@
+﻿@page "{handler?}/{id?}"
+@model EditManufacturingModel
+@{
+    ViewData["Title"] = "Fabricação";
+}
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/app-assets/css/plugins/forms/validation/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/forms/selects/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+}
+
+<form method="post" id="formManufacturing">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Acerto de Stock em Armazem</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Data de registo</label>
+                                <input type="date" class="form-control" id="dateCreate" asp-for="Now" readonly />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Referencia Interna</label>
+                                <input type="text" class="form-control" asp-for="AdjustStock.Reference" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Armazem</label>
+                                <select class="select2 form-control" asp-items="@Model.Warehouses" asp-for="AdjustStock.Warehouse" onchange="if (this.selectedIndex) choiceWarehouse(this);" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Artigo de Saida</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="email-addr">Referencia</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-4">
+                                <label for="pass">Descrição</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="bio">Qtd.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="profession">Preço/Unid.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="profession">Total</label>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="form row">
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <br>
+                                <select class="select2 selectRefExit form-control" name="Reference" onchange="if (this.selectedIndex) DescripChange(this);" required>
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-4">
+                                <br>
+                                <select class="select2 selectDecrExit form-control" name="TempDescription" onchange="if (this.selectedIndex) RefChange(this);">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <br>
+                                <input type="number" class="form-control" placeholder="10" name="Quantity" oninput="CalcTotal(this)" />
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <br>
+                                <input type="text" readonly class="form-control" name="Price" value="0">
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <br>
+                                <input type="text" readonly class="form-control" name="TotalPrice" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Artigos de Entrada</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="email-addr">Referencia</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-4">
+                                <label for="pass">Descrição</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="bio">Qtd.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="profession">Preço/Unid.</label>
+                            </div>
+                            <div class="form-group mb-1 col-sm-12 col-md-2">
+                                <label for="profession">Total</label>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="repeater-default">
+                            <div data-repeater-list="AdjustStock.Products">
+                                <div data-repeater-item>
+                                    <div class="form row">
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <select class="select2 selectRefEntry form-control" name="Reference" onchange="if (this.selectedIndex) DescripChange(this);" required>
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-4">
+                                            <br>
+                                            <select class="select2 selectDecrEntry form-control" name="TempDescription" onchange="if (this.selectedIndex) RefChange(this);">
+                                                <option></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <input type="number" class="form-control" placeholder="10" name="Quantity" oninput="CalcTotal(this)" />
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-2">
+                                            <br>
+                                            <input type="text" readonly class="form-control" name="Price" value="0">
+                                        </div>
+                                        <div class="form-group mb-1 col-sm-12 col-md-1">
+                                            <br>
+                                            <input type="text" readonly class="form-control totalPrice" name="TotalPrice" value="0">
+                                        </div>
+                                        <div class="form-group col-sm-12 col-md-1 text-center mt-2">
+                                            <button type="button" class="btn btn-danger" data-repeater-delete>
+                                                <i class="ft-x"></i>
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="form-group overflow-hidden">
+                                <div class="col-12">
+                                    <button data-repeater-create class="btn btn-primary addProduct" type="button">
+                                        <i class="ft-plus"></i> Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Totais</h4>
+                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                    <div class="heading-elements">
+                        <ul class="list-inline mb-0">
+                            <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                            <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            <li><a data-action="close"><i class="ft-x"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card-content collapse show">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Total de Saida</label>
+                                <input readonly type="text" id="totalExit" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Total de Entrada</label>
+                                <input readonly type="text" id="totalEntry" class="form-control" />
+                            </div>
+                            <div class="form-group col-sm-12 col-md-4">
+                                <label>Diferença</label>
+                                <input readonly type="text" id="diference" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                            <input type="button" id="submitForm" class="btn btn-primary btn-lg" value="Submeter">
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js"></script>
+    <script src="~/app-assets/vendors/js/forms/repeater/jquery.repeater.min.js"></script>
+    <script src="~/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <script src="~/app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script>
+
+        var tempId;
+
+        var DescripChangeFunc = false;
+        var RefChangeFunc = false;
+
+        function DescripChange(e) {
+            DescripChangeFunc = true;
+            if (RefChangeFunc === false) {
+                const id = document.getElementsByName(e.name)[0].value;
+                DescripChangeJQ(e.name, id);
+            }
+            DescripChangeFunc = false;
+        }
+
+        function RefChange(e) {
+            RefChangeFunc = true;
+            if (DescripChangeFunc === false) {
+                const id = document.getElementsByName(e.name)[0].value;
+                RefChangeJQ(e.name, id);
+            }
+            RefChangeFunc = false;
+        }
+
+        function choiceWarehouse(e) {
+            choiceWarehouseJQ(e.name);
+        }
+
+        function CalcTotal(e) {
+
+            var unitName = e.name.replace("Quantity", "Price");
+
+            var totalName = e.name.replace("Quantity", "TotalPrice");
+
+            var unitPrice = document.getElementsByName(unitName)[0].value.replace(",", ".");
+
+            var qtd = document.getElementsByName(e.name)[0].value;
+
+            document.getElementsByName(totalName)[0].value = unitPrice * qtd + " €";
+
+            if (totalName === 'TotalPrice') {
+                document.getElementById('totalExit').value = unitPrice * qtd + " €";
+            }
+
+            if (totalName.includes("AdjustStock.Products")) {
+
+                UpdateTotal();
+            }
+        }
+
+        function UpdateTotal() {
+
+
+            var array = document.getElementsByClassName("totalPrice");
+
+            console.log(array);
+
+            var sizeArray = array.length;
+
+            var total = 0;
+
+            for (var i = 0; i < sizeArray; i++) {
+
+                if (array[i].value === "")
+                    continue;
+
+
+                total += parseFloat(array[i].value.replace(" €", ""));
+            }
+
+            document.getElementById('totalEntry').value = total + " €";
+
+            document.getElementById('diference').value = parseFloat(document.getElementById('totalExit').value.replace(" €", "")) - total + " €";
+        }
+
+        $(document).ready(function() {
+            var dataProducts = [];
+            var dataSelectProductsRef = [];
+            var dataSelectProductsName = [];
+
+            @if (Model.Products != null)
+            {
+                foreach (var d in Model.Products)
+                {
+                    @:dataProducts.push({ reference: "@d.Reference", description: "@d.Description", PL: "@d.Pl" });
+                }
+            }
+
+
+            dataProducts.forEach((element) => {
+
+                let opt = {
+                    id: element.reference,
+                    text: element.description
+                };
+
+                dataSelectProductsName.push(opt);
+
+                opt = {
+                    id: element.reference,
+                    text: element.reference
+                };
+
+                dataSelectProductsRef.push(opt);
+            });
+
+            var products;
+            DescripChangeJQ = function(name, id) {
+                if (id !== "") {
+                    try {
+                        const price = dataProducts.find(x => x.reference === id).PL;
+                        $('[name="' + name.replace("Reference", "Price") + '"]').val(price.toString().replace('.', ','));
+                        $('[name="' + name.replace("Reference", "TempDescription") + '"]').val(id).trigger('change');
+                    } catch (error) {
+                    }
+                }
+            }
+
+            RefChangeJQ = function(name, id) {
+                if (id !== "") {
+                    try {
+                        const price = dataProducts.find(x => x.reference === id).PL;
+                        $('[name="' + name.replace("TempDescription", "Price") + '"]').val(price.toString().replace('.', ','));
+                        $('[name="' + name.replace("TempDescription", "Reference") + '"]').val(id).trigger('change');
+                    } catch (error) {
+                    }
+                }
+            }
+
+            var productsSelectRef = [];
+            var productsSelectDecrip = [];
+
+            choiceWarehouseJQ = function(name) {
+
+                const idWarehouse = $('[name="' + name + '"]').val();
+
+                $.ajax({
+                    type: "GET",
+                    url: 'Manufacturing/ProductsWarehouse?id=' + idWarehouse,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function(data) {
+                        products = data;
+                        productsSelectRef = [];
+                        productsSelectDecrip = [];
+
+                        for (let i = 0; i < data.length; i++) {
+
+                            let opt = {
+                                id: data[i].reference,
+                                text: data[i].reference
+                            };
+
+                            productsSelectRef.push(opt);
+
+                            opt = {
+                                id: data[i].reference,
+                                text: data[i].description
+                            };
+
+                            productsSelectDecrip.push(opt);
+
+                        }
+
+                        $('.selectRefExit').empty().trigger("change");
+                        $('.selectRefExit').prepend('<option selected=""></option>').select2({
+                            width: '100%',
+                            placeholder: "Placeholder text",
+                            data: productsSelectRef,
+                            tags: true
+                        });
+
+                        $('.selectDecrExit').empty().trigger("change");
+                        $('.selectDecrExit').prepend('<option selected=""></option>').select2({
+                            width: '100%',
+                            placeholder: "Placeholder text",
+                            data: productsSelectDecrip,
+                            tags: true
+                        });
+                    }
+                });
+            }
+
+
+            $('.app-content ').attr('style', 'max-width: 100%; margin-bottom: 30px;');
+
+            $('.repeater-default').repeater({
+                show: function() {
+                    $(this).slideDown();
+                    $("input").removeClass("calcPrice");
+                    $("input").addClass("calcPrice");
+                    $(".selectRefEntry").select2({
+                        width: '100%',
+                        placeholder: "Placeholder text",
+                        data: dataSelectProductsRef,
+                        tags: true
+                    });
+                    $('.selectDecrEntry').select2({
+                        width: '100%',
+                        placeholder: "Placeholder text",
+                        data: dataSelectProductsName,
+                        tags: true
+                    });
+                },
+                hide: function(remove) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Your text here!',
+                        confirmButtonClass: 'btn btn-primary',
+                        cancelButtonClass: 'btn btn-danger ml-1',
+                        buttonsStyling: false
+                    }).then(function(result) {
+                        if (result.value) {
+                            $(this).slideUp(remove);
+                            Swal.fire({
+                                type: "success",
+                                title: 'Deleted!',
+                                text: 'Your file has been deleted.',
+                                confirmButtonClass: 'btn btn-success'
+                            }).then(function() {
+                                UpdateTotal();
+                            });
+                        }
+                    });
+                }
+            });
+
+            // Basic Select2 select
+            $(".select2").select2({
+                // the following code is used to disable x-scrollbar when click in select input and
+                // take 100% width in responsive also
+                dropdownAutoWidth: true,
+                width: '100%',
+                placeholder: "Placeholder text"
+            });
+
+            $(".selectRefExit").select2({
+                // the following code is used to disable x-scrollbar when click in select input and
+                // take 100% width in responsive also
+                dropdownAutoWidth: true,
+                width: '100%',
+                placeholder: "Placeholder text",
+                tags: true
+            });
+
+            $(".selectDecrExit").select2({
+                // the following code is used to disable x-scrollbar when click in select input and
+                // take 100% width in responsive also
+                dropdownAutoWidth: true,
+                width: '100%',
+                placeholder: "Placeholder text",
+                tags: true
+            });
+
+            $(".selectRefEntry").select2({
+                width: '100%',
+                placeholder: "Placeholder text",
+                data: dataSelectProductsRef,
+                tags: true
+            });
+            $('.selectDecrEntry').select2({
+                width: '100%',
+                placeholder: "Placeholder text",
+                data: dataSelectProductsName,
+                tags: true
+            });
+
+            $("#formManufacturing").validate();
+
+            $("#submitForm").click(function(e) {
+                if ($("#diference").val() === "0 €") 
+                    $("#formManufacturing").submit();
+                else 
+                    Swal.fire({
+                        type: "error",
+                        title: 'Atenção!',
+                        text: 'A diferença entre o valor de saida e o valor de entrada tem de ser igual a 0€',
+                    });
+
+                if($("#formManufacturing").valid())
+                    $("#formManufacturing").submit();
+                else 
+                    return false;
+            });
+        });
+    </script>
+}

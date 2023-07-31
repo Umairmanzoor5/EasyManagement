@@ -1,0 +1,97 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.API", "EM.API\EM.API.csproj", "{C495EE81-5B44-4E9F-AAED-D18BD69F4100}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.Web", "EM.Web\EM.Web.csproj", "{BFE703DB-006D-4698-9571-B15F34D11437}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.DatabaseMongo", "EM.DatabaseMongo\EM.DatabaseMongo.csproj", "{B63355FD-C941-4352-A082-AA5BD9085050}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.DatabaseSQL", "EM.DatabaseSQL\EM.DatabaseSQL.csproj", "{8F868EC6-C721-4AEE-9213-28C5FFCBB8AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.DataRepository", "EM.DataRepository\EM.DataRepository.csproj", "{322E818C-3BF2-48D3-90AC-737B4237B705}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.Helper", "EM.Helper\EM.Helper.csproj", "{CC6AF534-DB48-4D90-87FF-A2C81046DA71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.Services", "EM.Services\EM.Services.csproj", "{9D4AF6C1-5365-497A-B67D-8388005F3F91}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EM.Business", "EM.Business\EM.Business.csproj", "{0E3FF245-00E2-486A-AF1E-342BEAA54F15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C495EE81-5B44-4E9F-AAED-D18BD69F4100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C495EE81-5B44-4E9F-AAED-D18BD69F4100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C495EE81-5B44-4E9F-AAED-D18BD69F4100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C495EE81-5B44-4E9F-AAED-D18BD69F4100}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE703DB-006D-4698-9571-B15F34D11437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE703DB-006D-4698-9571-B15F34D11437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE703DB-006D-4698-9571-B15F34D11437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE703DB-006D-4698-9571-B15F34D11437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B63355FD-C941-4352-A082-AA5BD9085050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B63355FD-C941-4352-A082-AA5BD9085050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B63355FD-C941-4352-A082-AA5BD9085050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B63355FD-C941-4352-A082-AA5BD9085050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F868EC6-C721-4AEE-9213-28C5FFCBB8AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F868EC6-C721-4AEE-9213-28C5FFCBB8AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F868EC6-C721-4AEE-9213-28C5FFCBB8AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F868EC6-C721-4AEE-9213-28C5FFCBB8AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322E818C-3BF2-48D3-90AC-737B4237B705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322E818C-3BF2-48D3-90AC-737B4237B705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322E818C-3BF2-48D3-90AC-737B4237B705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322E818C-3BF2-48D3-90AC-737B4237B705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6AF534-DB48-4D90-87FF-A2C81046DA71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6AF534-DB48-4D90-87FF-A2C81046DA71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6AF534-DB48-4D90-87FF-A2C81046DA71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6AF534-DB48-4D90-87FF-A2C81046DA71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4AF6C1-5365-497A-B67D-8388005F3F91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4AF6C1-5365-497A-B67D-8388005F3F91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4AF6C1-5365-497A-B67D-8388005F3F91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4AF6C1-5365-497A-B67D-8388005F3F91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E3FF245-00E2-486A-AF1E-342BEAA54F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E3FF245-00E2-486A-AF1E-342BEAA54F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E3FF245-00E2-486A-AF1E-342BEAA54F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E3FF245-00E2-486A-AF1E-342BEAA54F15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22A95721-1E31-4DBE-85BE-7BEC9E66AA4D}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/pg46539
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = EM.API\\EM.API.csproj
+		SccProjectName1 = EM.API
+		SccLocalPath1 = EM.API
+		SccProjectUniqueName2 = EM.Web\\EM.Web.csproj
+		SccProjectName2 = EM.Web
+		SccLocalPath2 = EM.Web
+		SccProjectUniqueName3 = EM.DatabaseMongo\\EM.DatabaseMongo.csproj
+		SccProjectName3 = EM.DatabaseMongo
+		SccLocalPath3 = EM.DatabaseMongo
+		SccProjectUniqueName4 = EM.DatabaseSQL\\EM.DatabaseSQL.csproj
+		SccProjectName4 = EM.DatabaseSQL
+		SccLocalPath4 = EM.DatabaseSQL
+		SccProjectUniqueName5 = EM.DataRepository\\EM.DataRepository.csproj
+		SccProjectName5 = EM.DataRepository
+		SccLocalPath5 = EM.DataRepository
+		SccProjectUniqueName6 = EM.Helper\\EM.Helper.csproj
+		SccProjectName6 = EM.Helper
+		SccLocalPath6 = EM.Helper
+		SccProjectUniqueName7 = EM.Services\\EM.Services.csproj
+		SccProjectName7 = EM.Services
+		SccLocalPath7 = EM.Services
+		SccProjectUniqueName8 = EM.Business\\EM.Business.csproj
+		SccProjectName8 = EM.Business
+		SccLocalPath8 = EM.Business
+	EndGlobalSection
+EndGlobal
